@@ -7,6 +7,8 @@ from pathlib import Path
 import shutil
 import subprocess
 
+from app_version import VERSION
+
 SOURCE = Path(__file__).resolve().parent
 HOME = Path.home()
 DATA = Path(os.environ.get('XDG_DATA_HOME', HOME / '.local/share'))
@@ -66,10 +68,13 @@ def strip_comments(text):
 
 
 def main():
+    manifest = json.loads((SOURCE / 'plugin/manifest.json').read_text())
+    if manifest['version'] != VERSION:
+        raise ValueError('Plugin version does not match VERSION. Run scripts/release.py check.')
     subprocess.run(['omarchy', 'plugin', 'validate', str(SOURCE / 'plugin')], check=True)
     backup(APP)
     APP.mkdir(parents=True, exist_ok=True)
-    for name in ('app.py', 'calendar_data.py', 'race_results.py', 'podiums-2026.json',
+    for name in ('VERSION', 'app_version.py', 'app.py', 'calendar_data.py', 'race_results.py', 'podiums-2026.json',
                  'style.css', 'motogp-logo.svg', 'icon.png'):
         shutil.copy2(SOURCE / name, APP / name)
     shutil.copytree(SOURCE / 'circuits', APP / 'circuits', dirs_exist_ok=True)
@@ -118,7 +123,7 @@ def main():
         write(menu, original[:end] + addition + original[end:])
 
     subprocess.run(['update-desktop-database', str(DATA / 'applications')], check=False)
-    print(f'Installed calendar: {APP}')
+    print(f'Installed MotoGP Calendar {VERSION}: {APP}')
     print(f'Installed bar widget: {PLUGIN}')
     print(f'Backups: {BACKUP}')
 

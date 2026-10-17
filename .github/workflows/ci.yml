@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_call:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Python ${{ matrix.python }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ['3.11', '3.14']
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Validate release metadata
+        run: python scripts/release.py check
+      - name: Run offline tests
+        run: python -m unittest discover -s tests -v
+      - name: Build release package
+        run: python scripts/release.py build
+      - name: Verify checksum and commands from extracted package
+        shell: bash
+        run: |
+          (cd dist && sha256sum --check SHA256SUMS)
+          package_dir=$(mktemp -d)
+          tar -xzf dist/motogp-calendar-*.tar.gz -C "$package_dir"
+          version=$(cat VERSION)
+          cd "$package_dir/motogp-calendar-$version"
+          test "$(python app.py --version)" = "MotoGP Calendar $version"
+          python app.py --status
+          python scripts/release.py check
+          python -m unittest discover -s tests -v
