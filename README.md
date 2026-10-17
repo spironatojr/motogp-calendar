@@ -3,6 +3,20 @@
 A native GTK4/libadwaita calendar with a Quickshell bar launcher. Uses the Python,
 GTK4, libadwaita and Quickshell packages already installed on this desktop.
 
+## Screenshots
+
+Upcoming races, month navigation, circuit outlines and the selected race weekend:
+
+![Upcoming MotoGP races with the October calendar and Australian Grand Prix details](docs/screenshots/upcoming-races.png)
+
+Full season view with completed Grand Prix podiums and rider teams:
+
+![Full season with the Netherlands Grand Prix selected and completed race podiums](docs/screenshots/season-podiums.png)
+
+Screenshots captured from the native app on Omarchy on October 17, 2026.
+
+## Features
+
 The header uses the official white MotoGP SVG from the
 [MotoGP homepage](https://www.motogp.com/), saved as `motogp-logo.svg` from
 `https://static.dorna.com/assets/logos/mgp/brand/mgp-logo-on-dark.svg?v2`.
