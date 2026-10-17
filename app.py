@@ -9,11 +9,15 @@ from pathlib import Path
 import sys
 import threading
 
+from app_version import VERSION
 import calendar_data as model
 import race_results as results
 
 
 def main():
+    if '--version' in sys.argv:
+        print(f'MotoGP Calendar {VERSION}')
+        return
     if '--status' in sys.argv:
         print(json.dumps(model.status()))
         return

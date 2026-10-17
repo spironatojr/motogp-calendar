@@ -76,9 +76,20 @@ check the official timetable for session changes.
 
 ## Install or update
 
+Download the package and `SHA256SUMS` from
+[Releases](https://github.com/spironatojr/motogp-calendar/releases), verify the
+checksum, extract the archive, and run the installer inside its directory:
+
 ```sh
+sha256sum --check SHA256SUMS
+tar -xzf motogp-calendar-1.0.0.tar.gz
+cd motogp-calendar-1.0.0
 python install.py
+motogp-calendar --version
 ```
+
+Close the calendar before updating, then reopen it. When working from a Git
+checkout, run `python install.py` from the repository root instead.
 
 The installer copies the app to `~/.local/share/motogp-calendar`, the launcher to
 `~/.local/bin/motogp-calendar`, and the widget to
@@ -92,6 +103,7 @@ size; `hyprland.lua` loads it. It never edits `/usr/share/omarchy`.
 
 ```sh
 motogp-calendar                         # open or focus the app
+motogp-calendar --version               # installed app version; no GUI imports
 motogp-calendar --status                # JSON next-race label; no GUI imports
 motogp-calendar --official              # open the official schedule
 motogp-calendar --export MotoGP-2026.ics # export all weekend events
@@ -110,3 +122,15 @@ launcher, desktop entry (`~/.local/share/applications/local.motogp.Calendar.desk
 and plugin directories listed above.
 Also remove `require("hypr.motogp")` from `~/.config/hypr/hyprland.lua` and delete
 `~/.config/hypr/motogp.lua`, then run `hyprctl reload`.
+
+## Development and releases
+
+`VERSION` defines the app version; it is separate from the season year and cached
+results. See the [changelog](CHANGELOG.md) for changes in each release.
+Develop changes in branches and submit pull requests into `main`. GitHub Actions
+runs offline tests and package checks on Python 3.11 and 3.14. Tags such as
+`v1.0.1` create a draft release after those checks pass; publishing is a separate
+deliberate action.
+
+See [Versions and releases](docs/RELEASING.md) for the complete release procedure,
+installing a specific version, and returning to an earlier release.
