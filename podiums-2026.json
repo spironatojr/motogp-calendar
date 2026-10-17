@@ -1,0 +1,413 @@
+{
+  "year": 2026,
+  "races": {
+    "THA": {
+      "date": "2026-03-01",
+      "verified": "2026-10-17",
+      "event_id": "f3fd8ba7-2966-46bd-8687-b92047f5e733",
+      "session_id": "656efa33-5c39-4d93-b8ef-8b669fdbec05",
+      "source": "https://www.motogp.com/en/gp-results/2026/THA/MotoGP/RAC/Classification",
+      "podium": [
+        {
+          "position": 1,
+          "rider": "Marco Bezzecchi",
+          "team": "Aprilia Racing"
+        },
+        {
+          "position": 2,
+          "rider": "Pedro Acosta",
+          "team": "Red Bull KTM Factory Racing"
+        },
+        {
+          "position": 3,
+          "rider": "Raul Fernandez",
+          "team": "Trackhouse MotoGP Team"
+        }
+      ]
+    },
+    "BRA": {
+      "date": "2026-03-22",
+      "verified": "2026-10-17",
+      "event_id": "738a8b22-f744-4c75-847b-a2565dce17de",
+      "session_id": "59d15875-e818-47a4-996b-f15506292542",
+      "source": "https://www.motogp.com/en/gp-results/2026/BRA/MotoGP/RAC/Classification",
+      "podium": [
+        {
+          "position": 1,
+          "rider": "Marco Bezzecchi",
+          "team": "Aprilia Racing"
+        },
+        {
+          "position": 2,
+          "rider": "Jorge Martin",
+          "team": "Aprilia Racing"
+        },
+        {
+          "position": 3,
+          "rider": "Fabio Di Giannantonio",
+          "team": "Pertamina Enduro VR46 Racing Team"
+        }
+      ]
+    },
+    "USA": {
+      "date": "2026-03-29",
+      "verified": "2026-10-17",
+      "event_id": "782c929d-faaf-44e2-9d6f-0fde033855be",
+      "session_id": "19db930a-1a51-4dee-9811-2a5e58e36658",
+      "source": "https://www.motogp.com/en/gp-results/2026/USA/MotoGP/RAC/Classification",
+      "podium": [
+        {
+          "position": 1,
+          "rider": "Marco Bezzecchi",
+          "team": "Aprilia Racing"
+        },
+        {
+          "position": 2,
+          "rider": "Jorge Martin",
+          "team": "Aprilia Racing"
+        },
+        {
+          "position": 3,
+          "rider": "Pedro Acosta",
+          "team": "Red Bull KTM Factory Racing"
+        }
+      ]
+    },
+    "ESP": {
+      "date": "2026-04-26",
+      "verified": "2026-10-17",
+      "event_id": "506917f4-179d-4e1d-b750-805c15bab8d7",
+      "session_id": "9267e6f1-75da-4e4f-93a3-e67d629744b2",
+      "source": "https://www.motogp.com/en/gp-results/2026/SPA/MotoGP/RAC/Classification",
+      "podium": [
+        {
+          "position": 1,
+          "rider": "Alex Marquez",
+          "team": "BK8 Gresini Racing MotoGP"
+        },
+        {
+          "position": 2,
+          "rider": "Marco Bezzecchi",
+          "team": "Aprilia Racing"
+        },
+        {
+          "position": 3,
+          "rider": "Fabio Di Giannantonio",
+          "team": "Pertamina Enduro VR46 Racing Team"
+        }
+      ]
+    },
+    "FRA": {
+      "date": "2026-05-10",
+      "verified": "2026-10-17",
+      "event_id": "edcfdba3-7a1f-44f3-8fe8-1f8a6609770c",
+      "session_id": "96ba2bb1-dbd2-4d98-9f94-a9eafdde7057",
+      "source": "https://www.motogp.com/en/gp-results/2026/FRA/MotoGP/RAC/Classification",
+      "podium": [
+        {
+          "position": 1,
+          "rider": "Jorge Martin",
+          "team": "Aprilia Racing"
+        },
+        {
+          "position": 2,
+          "rider": "Marco Bezzecchi",
+          "team": "Aprilia Racing"
+        },
+        {
+          "position": 3,
+          "rider": "Ai Ogura",
+          "team": "Trackhouse MotoGP Team"
+        }
+      ]
+    },
+    "CAT": {
+      "date": "2026-05-17",
+      "verified": "2026-10-17",
+      "event_id": "a0251657-afe5-4d90-a66f-d4779babd571",
+      "session_id": "58452c1f-d739-49a3-aa71-046010b64ff1",
+      "source": "https://www.motogp.com/en/gp-results/2026/CAT/MotoGP/RAC/Classification",
+      "podium": [
+        {
+          "position": 1,
+          "rider": "Pedro Acosta",
+          "team": "Red Bull KTM Factory Racing"
+        },
+        {
+          "position": 2,
+          "rider": "Raul Fernandez",
+          "team": "Trackhouse MotoGP Team"
+        },
+        {
+          "position": 3,
+          "rider": "Jorge Martin",
+          "team": "Aprilia Racing"
+        }
+      ]
+    },
+    "ITA": {
+      "date": "2026-05-31",
+      "verified": "2026-10-17",
+      "event_id": "dd266adb-3930-4099-a3d1-a9807362f048",
+      "session_id": "a3d72de3-e81c-478a-9669-59727f722e4b",
+      "source": "https://www.motogp.com/en/gp-results/2026/ITA/MotoGP/RAC/Classification",
+      "podium": [
+        {
+          "position": 1,
+          "rider": "Marco Bezzecchi",
+          "team": "Aprilia Racing"
+        },
+        {
+          "position": 2,
+          "rider": "Jorge Martin",
+          "team": "Aprilia Racing"
+        },
+        {
+          "position": 3,
+          "rider": "Francesco Bagnaia",
+          "team": "Ducati Lenovo Team"
+        }
+      ]
+    },
+    "HUN": {
+      "date": "2026-06-07",
+      "verified": "2026-10-17",
+      "event_id": "4bd780c9-9da4-48c6-a69f-ebfd6bf8a425",
+      "session_id": "ab1f4691-ca70-48b6-bcdd-8b513651ad9f",
+      "source": "https://www.motogp.com/en/gp-results/2026/HUN/MotoGP/RAC/Classification",
+      "podium": [
+        {
+          "position": 1,
+          "rider": "Marc Marquez",
+          "team": "Ducati Lenovo Team"
+        },
+        {
+          "position": 2,
+          "rider": "Pedro Acosta",
+          "team": "Red Bull KTM Factory Racing"
+        },
+        {
+          "position": 3,
+          "rider": "Francesco Bagnaia",
+          "team": "Ducati Lenovo Team"
+        }
+      ]
+    },
+    "CZE": {
+      "date": "2026-06-21",
+      "verified": "2026-10-17",
+      "event_id": "f9d2e80c-431b-485f-afcf-671950648ad7",
+      "session_id": "32a50043-07c4-48cb-94f5-cf02afa57ca9",
+      "source": "https://www.motogp.com/en/gp-results/2026/CZE/MotoGP/RAC/Classification",
+      "podium": [
+        {
+          "position": 1,
+          "rider": "Marc Marquez",
+          "team": "Ducati Lenovo Team"
+        },
+        {
+          "position": 2,
+          "rider": "Ai Ogura",
+          "team": "SuperFile Trackhouse MotoGP Team"
+        },
+        {
+          "position": 3,
+          "rider": "Francesco Bagnaia",
+          "team": "Ducati Lenovo Team"
+        }
+      ]
+    },
+    "NED": {
+      "date": "2026-06-28",
+      "verified": "2026-10-17",
+      "event_id": "83804cb1-a417-4213-b727-37f84b26d36e",
+      "session_id": "795e11c0-a313-4735-9c54-df93d06624b2",
+      "source": "https://www.motogp.com/en/gp-results/2026/NED/MotoGP/RAC/Classification",
+      "podium": [
+        {
+          "position": 1,
+          "rider": "Ai Ogura",
+          "team": "SuperFile Trackhouse MotoGP Team"
+        },
+        {
+          "position": 2,
+          "rider": "Raul Fernandez",
+          "team": "SuperFile Trackhouse MotoGP Team"
+        },
+        {
+          "position": 3,
+          "rider": "Jorge Martin",
+          "team": "Aprilia Racing"
+        }
+      ]
+    },
+    "GER": {
+      "date": "2026-07-12",
+      "verified": "2026-10-17",
+      "event_id": "b26a84f7-2d9b-4cc5-a3e5-3d1abe916d8c",
+      "session_id": "5ecc9282-1135-4611-aa64-fe4ecc512cfd",
+      "source": "https://www.motogp.com/en/gp-results/2026/GER/MotoGP/RAC/Classification",
+      "podium": [
+        {
+          "position": 1,
+          "rider": "Marc Marquez",
+          "team": "Ducati Lenovo Team"
+        },
+        {
+          "position": 2,
+          "rider": "Ai Ogura",
+          "team": "SuperFile Trackhouse MotoGP Team"
+        },
+        {
+          "position": 3,
+          "rider": "Raul Fernandez",
+          "team": "SuperFile Trackhouse MotoGP Team"
+        }
+      ]
+    },
+    "GBR": {
+      "date": "2026-08-09",
+      "verified": "2026-10-17",
+      "event_id": "6a16e0cb-ef4b-44b1-92e5-2e958cca0815",
+      "session_id": "cdee8aec-30af-403a-86fd-64316afc60b5",
+      "source": "https://www.motogp.com/en/gp-results/2026/GBR/MotoGP/RAC/Classification",
+      "podium": [
+        {
+          "position": 1,
+          "rider": "Raul Fernandez",
+          "team": "SuperFile Trackhouse MotoGP Team"
+        },
+        {
+          "position": 2,
+          "rider": "Jorge Martin",
+          "team": "Aprilia Racing"
+        },
+        {
+          "position": 3,
+          "rider": "Marco Bezzecchi",
+          "team": "Aprilia Racing"
+        }
+      ]
+    },
+    "ARA": {
+      "date": "2026-08-30",
+      "verified": "2026-10-17",
+      "event_id": "23b7a561-17e4-4aa6-9be3-2529a5b69938",
+      "session_id": "0c6f6ec2-1f96-4b95-b634-54d01a5bf1d2",
+      "source": "https://www.motogp.com/en/gp-results/2026/ARA/MotoGP/RAC/Classification",
+      "podium": [
+        {
+          "position": 1,
+          "rider": "Marc Marquez",
+          "team": "Ducati Lenovo Team"
+        },
+        {
+          "position": 2,
+          "rider": "Pedro Acosta",
+          "team": "Red Bull KTM Factory Racing"
+        },
+        {
+          "position": 3,
+          "rider": "Marco Bezzecchi",
+          "team": "Aprilia Racing"
+        }
+      ]
+    },
+    "RSM": {
+      "date": "2026-09-13",
+      "verified": "2026-10-17",
+      "event_id": "a5881826-ec88-4a41-8e4c-ba58709d4591",
+      "session_id": "ed730383-6989-4868-9e16-db8d0d9d4cbf",
+      "source": "https://www.motogp.com/en/gp-results/2026/RSM/MotoGP/RAC/Classification",
+      "podium": [
+        {
+          "position": 1,
+          "rider": "Marc Marquez",
+          "team": "Ducati Lenovo Team"
+        },
+        {
+          "position": 2,
+          "rider": "Alex Marquez",
+          "team": "BK8 Gresini Racing MotoGP"
+        },
+        {
+          "position": 3,
+          "rider": "Pedro Acosta",
+          "team": "Red Bull KTM Factory Racing"
+        }
+      ]
+    },
+    "AUT": {
+      "date": "2026-09-20",
+      "verified": "2026-10-17",
+      "event_id": "e191f3f6-218b-4a1c-bbd2-3ed8b5135683",
+      "session_id": "4d2ef1ce-9282-4dbb-87e3-debea643d911",
+      "source": "https://www.motogp.com/en/gp-results/2026/AUT/MotoGP/RAC/Classification",
+      "podium": [
+        {
+          "position": 1,
+          "rider": "Pedro Acosta",
+          "team": "Red Bull KTM Factory Racing"
+        },
+        {
+          "position": 2,
+          "rider": "Jorge Martin",
+          "team": "Aprilia Racing"
+        },
+        {
+          "position": 3,
+          "rider": "Marco Bezzecchi",
+          "team": "Aprilia Racing"
+        }
+      ]
+    },
+    "JPN": {
+      "date": "2026-10-04",
+      "verified": "2026-10-17",
+      "event_id": "5a671255-63ca-46e2-bd60-34134bb063b4",
+      "session_id": "a650e254-0990-40d4-a558-a76b1a9d747b",
+      "source": "https://www.motogp.com/en/gp-results/2026/JPN/MotoGP/RAC/Classification",
+      "podium": [
+        {
+          "position": 1,
+          "rider": "Marc Marquez",
+          "team": "Ducati Lenovo Team"
+        },
+        {
+          "position": 2,
+          "rider": "Jorge Martin",
+          "team": "Aprilia Racing"
+        },
+        {
+          "position": 3,
+          "rider": "Marco Bezzecchi",
+          "team": "Aprilia Racing"
+        }
+      ]
+    },
+    "INA": {
+      "date": "2026-10-11",
+      "verified": "2026-10-17",
+      "event_id": "275ca55d-45d3-440f-ad59-17d6b3e6b2d3",
+      "session_id": "6ff94bbd-cece-46d7-bc92-37fbed0fa047",
+      "source": "https://www.motogp.com/en/gp-results/2026/INA/MotoGP/RAC/Classification",
+      "podium": [
+        {
+          "position": 1,
+          "rider": "Marco Bezzecchi",
+          "team": "Aprilia Racing"
+        },
+        {
+          "position": 2,
+          "rider": "Raul Fernandez",
+          "team": "SuperFile Trackhouse MotoGP Team"
+        },
+        {
+          "position": 3,
+          "rider": "Jorge Martin",
+          "team": "Aprilia Racing"
+        }
+      ]
+    }
+  }
+}

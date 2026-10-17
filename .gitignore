@@ -1,0 +1,25 @@
+# Local backups can contain desktop configuration from this machine.
+/backups/
+
+# Generated calendar exports.
+*.ics
+
+# Python caches, virtual environments and test output.
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Build output, local credentials and editor metadata.
+build/
+dist/
+*.egg-info/
+.env
+.env.*
+!.env.example
+.idea/
+.vscode/
+.DS_Store

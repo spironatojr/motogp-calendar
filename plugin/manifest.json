@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "id": "local.motogp",
+  "name": "MotoGP Calendar",
+  "version": "1.0.0",
+  "author": "Local",
+  "license": "MIT",
+  "description": "Next Grand Prix and a launcher for the offline MotoGP race calendar.",
+  "kinds": ["bar-widget"],
+  "entryPoints": {"barWidget": "BarWidget.qml"},
+  "barWidget": {
+    "displayName": "MotoGP",
+    "description": "Open the race calendar; right-click for the official schedule.",
+    "category": "Personal",
+    "allowMultiple": false,
+    "defaultSection": "left"
+  }
+}

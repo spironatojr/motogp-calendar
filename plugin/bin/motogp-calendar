@@ -1,0 +1,2 @@
+#!/bin/sh
+exec /usr/bin/python "${XDG_DATA_HOME:-$HOME/.local/share}/motogp-calendar/app.py" "$@"

@@ -1,0 +1,58 @@
+window.motogp { background: #17191d; color: #f4eee7; }
+.motogp headerbar { background: #17191d; border: none; box-shadow: none; min-height: 64px; }
+.motogp .app-subtitle { font-size: 10px; letter-spacing: 2px; color: #a4a6ae; }
+.motogp button { transition: background 120ms ease; }
+.motogp button:focus-visible { outline: 2px solid #ef6b5e; outline-offset: 2px; }
+.motogp button.toolbar-icon-button { min-width: 28px; min-height: 28px; padding: 0; background: transparent; color: #b5bbc6; border: 1px solid transparent; border-radius: 7px; box-shadow: none; }
+.motogp button.toolbar-icon-button:hover { background: #2a2d34; border-color: #373a42; color: #f4eee7; }
+.motogp button.toolbar-icon-button:active { background: #30333b; border-color: #4a4e59; color: #f4eee7; }
+.motogp .hero { margin: 4px 28px 0; padding: 24px 28px; border-radius: 14px; background: #252326; border-left: 4px solid #ed6154; }
+.motogp .eyebrow { font-size: 10px; font-weight: 800; letter-spacing: 1.8px; color: #f17c6e; }
+.motogp .hero-title { font-size: 30px; font-weight: 800; letter-spacing: -0.8px; }
+.motogp .hero-subtitle { color: #bbb6b5; font-size: 14px; }
+.motogp .countdown { border-left: 1px solid #4b3c3c; padding-left: 28px; min-width: 150px; }
+.motogp .count-number { font-size: 48px; font-weight: 300; color: #f17c6e; }
+.motogp .content { padding: 26px 28px 12px; }
+.motogp .calendar-panel { background: #202227; border-radius: 12px; padding: 16px; }
+.motogp .section-title { font-size: 15px; font-weight: 700; }
+.motogp .nav-button { min-width: 22px; min-height: 24px; padding: 0 4px; font-size: 22px; }
+.motogp .weekday { min-height: 24px; color: #8f939e; font-size: 11px; }
+.motogp .day { min-width: 30px; min-height: 30px; padding: 0; border-radius: 6px; background: transparent; box-shadow: none; color: #aeb0b9; font-size: 12px; }
+.motogp .day:hover { background: #34363d; }
+.motogp .weekend-day { background: #3a292b; color: #f3a196; }
+.motogp .race-day { background: #ed6154; color: #17191d; font-weight: 900; }
+.motogp .selected-day { box-shadow: inset 0 0 0 1px #ed6154; }
+.motogp .today { outline: 1px solid #c9c9d0; outline-offset: -3px; }
+.motogp .red { color: #ed6154; }
+.motogp .muted { color: #9b9fa9; }
+.motogp .fine-print { font-size: 11px; }
+.motogp .jump-button { color: #ed8c80; font-size: 12px; padding: 3px 0; min-height: 20px; }
+.motogp .detail-panel { padding: 0 4px; }
+.motogp .detail-title { font-size: 22px; font-weight: 750; }
+.motogp .detail-value { font-size: 12px; font-weight: 600; }
+.motogp .detail-panel .muted { font-size: 12px; }
+.motogp .timetable-button { margin-top: 4px; background: #2a2d34; font-size: 12px; border-radius: 7px; padding: 9px 12px; }
+.motogp .source-link { font-size: 11px; color: #b6bac5; padding: 0; min-height: 14px; }
+.motogp .linked button { min-height: 30px; padding: 4px 18px; background: #24272d; color: #a1a6b0; font-size: 12px; box-shadow: none; }
+.motogp .linked button:checked { background: #ede8df; color: #1b1d22; font-weight: 700; }
+.motogp searchentry { background: #202227; border-radius: 8px; min-height: 34px; box-shadow: none; }
+.motogp .month-heading { color: #8c929e; font-size: 10px; font-weight: 800; letter-spacing: 2px; margin: 12px 0 6px 2px; }
+.motogp .race-card { padding: 16px; background: #202227; border-radius: 10px; box-shadow: none; border: 1px solid transparent; }
+.motogp .race-card:hover { background: #2b2e35; }
+.motogp .selected-card { background: #2c2729; border-color: #765049; }
+.motogp .date-number { font-size: 27px; font-weight: 700; color: #ede8df; }
+.motogp .date-month { font-size: 10px; letter-spacing: 1px; color: #b3a8a3; }
+.motogp .race-title { font-size: 15px; font-weight: 700; }
+.motogp .podium-panel { margin-top: 14px; padding-top: 12px; border-top: 1px solid #35363d; }
+.motogp .podium-caption { color: #8f939e; font-size: 9px; font-weight: 700; letter-spacing: 1.4px; }
+.motogp .podium-rank { min-width: 24px; min-height: 24px; border-radius: 6px; font-size: 12px; font-weight: 800; }
+.motogp .podium-rank.gold { color: #d8ba76; background: #373124; }
+.motogp .podium-rank.silver { color: #c5cbd6; background: #30343c; }
+.motogp .podium-rank.bronze { color: #c7997d; background: #382e29; }
+.motogp .podium-rider { color: #e9e6e1; font-size: 12px; font-weight: 650; }
+.motogp .podium-team { color: #9b9fa9; font-size: 10px; font-weight: 400; }
+.motogp .podium-pending { margin-top: 12px; color: #9b9fa9; font-size: 11px; }
+.motogp .round-badge { color: #9a9eaa; font-size: 11px; font-weight: 700; }
+.motogp .next-badge { color: #ed8c80; font-size: 9px; font-weight: 800; letter-spacing: 1px; }
+.motogp .empty-state { padding: 30px 12px; }
+.motogp .footer { padding: 12px 28px 18px; border-top: 1px solid #272a30; }
