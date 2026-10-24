@@ -10,13 +10,22 @@ minor for compatible features, and major for incompatible changes to documented
 commands, installation or saved data. Use `-rc.1`, `-rc.2`, etc. for release candidates.
 The app version is independent of the season year and refreshed race data.
 
+When delivering application changes to GitHub, always prepare the appropriate
+SemVer increment and complete publication of the corresponding release. A merged
+pull request or a draft release alone does not complete the update. This is the
+project owner's standing preference; documentation-only changes are exempt.
+
 ## Develop and review
 
 1. Create a short-lived branch: `git switch -c feat/your-feature` or `fix/your-fix`.
 2. Implement the change and list user-visible changes under `[Unreleased]` in
    `CHANGELOG.md`. Documentation-only changes do not require a new app release.
+   For application changes, prepare the next version as described below and
+   include the version metadata and dated release notes in the delivery PR.
 3. Run `python -m unittest discover -s tests -v` and open a pull request into `main`.
 4. Merge after the Python 3.11 and 3.14 CI checks pass and the change is reviewed.
+5. Tag the merged commit, wait for the Release workflow, inspect the draft and
+   its downloads, and publish it as described below.
 
 CI validates version metadata, runs offline tests, builds the package, checks its
 checksum, and verifies commands and tests from the extracted package. It does not

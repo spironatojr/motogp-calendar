@@ -5,6 +5,8 @@ and the date of the last calendar/results refresh are separate from the app vers
 
 ## [Unreleased]
 
+## [1.0.1] - 2026-10-24
+
 ### Changed
 
 - Show only the checkered flag icon in the Omarchy bar, keeping next-race details
