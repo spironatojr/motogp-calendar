@@ -94,8 +94,8 @@ def main():
     shell = CONFIG / 'omarchy/shell.json'
     backup(shell)
     subprocess.run(['omarchy-shell', 'shell', 'rescanPlugins'], check=True)
-    subprocess.run(['omarchy', 'plugin', 'enable', 'local.motogp', '--section', 'left',
-                    '--after', 'omarchy.workspaces'], check=True)
+    subprocess.run(['omarchy', 'plugin', 'enable', 'local.motogp', '--section', 'right',
+                    '--after', 'omarchy.tray'], check=True)
 
     write(CONFIG / 'hypr/motogp.lua', (SOURCE / 'motogp.lua').read_text())
     hypr_config = CONFIG / 'hypr/hyprland.lua'
