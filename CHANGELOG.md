@@ -5,6 +5,12 @@ and the date of the last calendar/results refresh are separate from the app vers
 
 ## [Unreleased]
 
+### Changed
+
+- Show only the checkered flag icon in the Omarchy bar, keeping next-race details
+  in the tooltip.
+- Place the MotoGP widget on the right of the bar, after the system tray.
+
 ## [1.0.0] - 2026-10-17
 
 ### Added

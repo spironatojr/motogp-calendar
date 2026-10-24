@@ -23,7 +23,8 @@ The header uses the official white MotoGP SVG from the
 The app icon is the site's `mgp-favicon-on-dark-180x180.png`, saved as `icon.png`.
 Both assets were downloaded on October 17, 2026 and are bundled for offline use.
 
-Click **MotoGP · AUS 25 Oct** in the left side of the Omarchy bar to open the app.
+Click the **checkered flag icon** on the right side of the Omarchy bar to open the
+app. Hover over the icon for details of the next race.
 Right-click the launcher to open the official MotoGP calendar. The application
 also appears as **MotoGP Race Calendar** in the app launcher and **MotoGP Calendar**
 in the Omarchy menu. Escape closes the calendar.
@@ -93,9 +94,11 @@ checkout, run `python install.py` from the repository root instead.
 
 The installer copies the app to `~/.local/share/motogp-calendar`, the launcher to
 `~/.local/bin/motogp-calendar`, and the widget to
-`~/.config/omarchy/plugins/local.motogp`. It enables the widget after the workspaces
-on the left of the bar and adds an Omarchy menu entry. The shell hot-reloads these
-changes. Existing configuration and app files are backed up in `backups/` here.
+`~/.config/omarchy/plugins/local.motogp`. It enables the icon-only widget after the
+system tray on the right of the bar and adds an Omarchy menu entry. The shell
+normally hot-reloads these changes. If the previous widget text remains after an
+update, run `omarchy restart shell` to load the updated widget. Existing
+configuration and app files are backed up in `backups/` here.
 A small `~/.config/hypr/motogp.lua` rule opens the calendar centered at a readable
 size; `hyprland.lua` loads it. It never edits `/usr/share/omarchy`.
 

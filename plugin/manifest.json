@@ -13,6 +13,6 @@
     "description": "Open the race calendar; right-click for the official schedule.",
     "category": "Personal",
     "allowMultiple": false,
-    "defaultSection": "left"
+    "defaultSection": "right"
   }
 }
