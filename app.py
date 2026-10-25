@@ -278,14 +278,18 @@ def main():
             text = box(spacing=7)
             text.set_hexpand(True)
             days = (model.weekend_start(race) - self.today).days
-            text.append(label(f'UP NEXT  /  ROUND {race["round"]:02d}', 'eyebrow'))
+            result = results.result_for(self.results, race, self.today)
+            cancelled = result is not None and result.get('status') == 'CANCELLED'
+            heading = 'CANCELLED' if cancelled else 'UP NEXT'
+            text.append(label(f'{heading}  /  ROUND {race["round"]:02d}', 'eyebrow'))
             text.append(label(f'{race["country"]} Grand Prix', 'hero-title'))
             text.append(label(f'{race["circuit"]}   ·   {model.date_range(race)} {model.YEAR}', 'hero-subtitle'))
             self.hero.append(text)
             countdown = box(spacing=0, css='countdown')
             countdown.set_valign(Gtk.Align.CENTER)
-            countdown.append(label(str(days) if days > 0 else 'GO', 'count-number'))
-            countdown.append(label('DAYS TO WEEKEND' if days > 0 else 'RACE WEEKEND', 'eyebrow muted'))
+            countdown.append(label('—' if cancelled else str(days) if days > 0 else 'GO', 'count-number'))
+            caption = 'RACE CANCELLED' if cancelled else 'DAYS TO WEEKEND' if days > 0 else 'RACE WEEKEND'
+            countdown.append(label(caption, 'eyebrow muted'))
             self.hero.append(countdown)
 
         def shift_month(self, amount):
@@ -366,6 +370,7 @@ def main():
             clear(self.detail)
             race = self.selected
             date = model.race_date(race)
+            result = results.result_for(self.results, race, self.today)
             self.detail.append(label(f'ROUND {race["round"]:02d}  /  {race["flag"]}', 'eyebrow muted'))
             self.detail.append(label(f'{race["country"]} GP', 'detail-title'))
             self.detail.append(label(race['circuit'], 'muted'))
@@ -384,7 +389,9 @@ def main():
                 date_value.set_valign(Gtk.Align.CENTER)
                 dates.attach(key, 0, row, 1, 1)
                 dates.attach(date_value, 1, row, 1, 1)
-            if model.race_date(race) < self.today:
+            if result is not None and result.get('status') == 'CANCELLED':
+                self.detail.append(self.cancellation_widget(result))
+            if result is not None or date < self.today:
                 self.detail.append(button('Official race results  ↗',
                                           lambda: self.open_results(race), 'timetable-button'))
             else:
@@ -426,6 +433,13 @@ def main():
                 identity.append(team)
                 place.append(identity)
                 places.append(place)
+            return panel
+
+        def cancellation_widget(self, result):
+            panel = box(spacing=6, css='cancellation-panel')
+            panel.set_tooltip_text(f'MotoGP.com · Verified {result["verified"]}')
+            panel.append(label('Grand Prix race cancelled', 'cancellation-title', True))
+            panel.append(label('No Grand Prix podium. Sprint results are separate.', 'muted fine-print', True))
             return panel
 
         def filter_changed(self, widget):
@@ -512,7 +526,10 @@ def main():
                 badge.set_xalign(1)
                 badge_box.append(badge)
                 result = results.result_for(self.results, race, self.today)
-                if result is not None:
+                cancelled = result is not None and result.get('status') == 'CANCELLED'
+                if cancelled:
+                    badge_box.append(label('CANCELLED', 'cancelled-badge'))
+                elif result is not None:
                     badge_box.append(label('FINISHED', 'muted fine-print'))
                 elif next_race and race['code'] == next_race['code']:
                     badge_box.append(label('NEXT', 'next-badge'))
@@ -521,7 +538,9 @@ def main():
                 row.append(badge_box)
                 contents = box(spacing=0)
                 contents.append(row)
-                if result is not None:
+                if cancelled:
+                    contents.append(self.cancellation_widget(result))
+                elif result is not None:
                     contents.append(self.podium_widget(result))
                 elif date < self.today:
                     contents.append(label('Podium not available yet. Refresh to check results.',

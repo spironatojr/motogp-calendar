@@ -1,4 +1,4 @@
-"""Official MotoGP Grand Prix podiums, bundled offline and refreshed on demand."""
+"""Official MotoGP Grand Prix podiums and cancellations, cached for offline use."""
 from __future__ import annotations
 
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -31,7 +31,14 @@ def validate(data):
         if code not in known or dt.date.fromisoformat(result['date']).year != calendar.YEAR:
             raise ValueError('Unexpected results event.')
         dt.date.fromisoformat(result['verified'])
+        status = result.get('status', 'FINISHED')
+        if status not in ('FINISHED', 'CANCELLED'):
+            raise ValueError('Unexpected Grand Prix status.')
         podium = result['podium']
+        if status == 'CANCELLED':
+            if podium != []:
+                raise ValueError('A cancelled Grand Prix cannot have a podium.')
+            continue
         if len(podium) != 3 or [r['position'] for r in podium] != [1, 2, 3]:
             raise ValueError('Incomplete Grand Prix podium.')
         if len({r['rider'] for r in podium}) != 3:
@@ -97,14 +104,18 @@ def fetch_result(event, race, today=None):
     categories = _request('categories', eventUuid=event['id'])
     category = next(c for c in categories if c['name'].rstrip('™') == 'MotoGP')
     sessions = _request('sessions', eventUuid=event['id'], categoryUuid=category['id'])
-    session = next((s for s in sessions if s['type'] == 'RAC' and s['status'] == 'FINISHED'), None)
+    race_sessions = [s for s in sessions if s['type'] == 'RAC']
+    session = next((s for s in race_sessions if s['status'] == 'FINISHED'), None)
+    if session is None and race_sessions and all(s['status'] == 'CANCELLED' for s in race_sessions):
+        session = race_sessions[-1]
     if session is None:
         return None
-    classification = _request(f'session/{session["id"]}/classification', test='false')
     result = {'date': race['date'], 'verified': today.isoformat(),
               'event_id': event['id'], 'session_id': session['id'],
-              'source': results_url(race),
-              'podium': parse_classification(classification)}
+              'source': results_url(race), 'status': session['status'], 'podium': []}
+    if session['status'] == 'FINISHED':
+        classification = _request(f'session/{session["id"]}/classification', test='false')
+        result['podium'] = parse_classification(classification)
     validate({'year': calendar.YEAR, 'races': {race['code']: result}})
     return result
 

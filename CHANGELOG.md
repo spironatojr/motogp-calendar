@@ -5,6 +5,14 @@ and the date of the last calendar/results refresh are separate from the app vers
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-10-25
+
+### Added
+
+- Show officially cancelled Grand Prix races in race cards, weekend details and
+  the race-day header, with their status saved for offline browsing.
+- Keep cancelled races distinct from unavailable podiums and completed Sprints.
+
 ## [1.0.1] - 2026-10-24
 
 ### Changed

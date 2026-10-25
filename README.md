@@ -56,6 +56,10 @@ The app bundles verified podiums for the first 17 Grands Prix of 2026, through
 Indonesia, in `podiums-2026.json`. They work offline. **Refresh** checks both the
 calendar and the official results API and caches newly completed podiums. Unavailable
 results keep the saved podiums; an unconfirmed result never appears as a podium.
+When the official API marks the Grand Prix race as cancelled, **Refresh** saves
+that status and the app shows **CANCELLED** in its race card, a cancellation notice
+in the weekend details, and a cancellation header on race day. The notice remains
+available offline. A completed Sprint does not count as a Grand Prix podium.
 
 Click the calendar icon to the right of **Full season** to save
 `MotoGP-2026.ics`. This exports all 22 race weekends, regardless of the selected GP

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "local.motogp",
   "name": "MotoGP Calendar",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "author": "Local",
   "license": "MIT",
   "description": "Next Grand Prix and a launcher for the offline MotoGP race calendar.",
