@@ -119,6 +119,70 @@ class ResultsTests(unittest.TestCase):
         self.assertEqual(len(errors), 1)
         self.assertEqual(json.loads(self.cache.read_text()), self.data)
 
+    def cancelled_result(self):
+        return dict(self.data['races']['INA'], status='CANCELLED', podium=[])
+
+    def test_cancelled_grand_prix_is_saved_even_when_sprint_finished(self):
+        categories = [{'id': 'motogp', 'name': 'MotoGP™'}]
+        sessions = [{'id': 'sprint', 'type': 'SPR', 'status': 'FINISHED'},
+                    {'id': 'race', 'type': 'RAC', 'status': 'CANCELLED'}]
+        with patch.object(results, '_request', side_effect=[categories, sessions]) as request:
+            result = results.fetch_result(self.event(), self.indonesia, TODAY)
+        self.assertEqual(result['status'], 'CANCELLED')
+        self.assertEqual(result['podium'], [])
+        self.assertEqual(result['session_id'], 'race')
+        self.assertEqual(request.call_count, 2)  # Cancelled races have no classification.
+
+    def test_cancelled_sprint_does_not_cancel_grand_prix(self):
+        for sessions in (
+                [{'id': 'sprint', 'type': 'SPR', 'status': 'CANCELLED'}],
+                [{'id': 'sprint', 'type': 'SPR', 'status': 'CANCELLED'},
+                 {'id': 'race', 'type': 'RAC', 'status': 'NOT_STARTED'}]):
+            with self.subTest(sessions=sessions), patch.object(results, '_request', side_effect=[
+                    [{'id': 'motogp', 'name': 'MotoGP™'}], sessions]):
+                self.assertIsNone(results.fetch_result(self.event(), self.indonesia, TODAY))
+
+    def test_restarted_race_takes_precedence_over_cancelled_session(self):
+        for status in ('NOT_STARTED', 'FINISHED'):
+            sessions = [{'id': 'cancelled', 'type': 'RAC', 'status': 'CANCELLED'},
+                        {'id': 'restart', 'type': 'RAC', 'status': status}]
+            responses = [[{'id': 'motogp', 'name': 'MotoGP™'}], sessions]
+            if status == 'FINISHED':
+                responses.append(self.classification())
+            with self.subTest(status=status), patch.object(results, '_request', side_effect=responses):
+                result = results.fetch_result(self.event(), self.indonesia, TODAY)
+            if status == 'FINISHED':
+                self.assertEqual(result['status'], 'FINISHED')
+                self.assertEqual(result['session_id'], 'restart')
+                self.assertEqual(result['podium'], self.data['races']['INA']['podium'])
+            else:
+                self.assertIsNone(result)
+
+    def test_cancellation_cache_survives_offline_and_respects_race_date(self):
+        cancelled = self.cancelled_result()
+        with patch.object(results, '_request', side_effect=[
+                [{'id': 'season', 'year': 2026}], [self.event()]]), \
+                patch.object(results, 'fetch_result', return_value=cancelled):
+            data, errors = results.refresh_results(self.races, TODAY)
+        self.assertEqual(errors, [])
+        loaded = results.load_results()
+        self.assertEqual(loaded, data)
+        self.assertEqual(len(loaded['races']), 17)
+        self.assertEqual(results.result_for(loaded, self.indonesia, TODAY), cancelled)
+        self.assertIsNone(results.result_for(loaded, self.indonesia, dt.date(2026, 10, 10)))
+        self.assertIsNone(results.result_for(loaded, dict(self.indonesia, date='2026-10-12'), TODAY))
+        with patch.object(results, '_request', side_effect=OSError('offline')):
+            with self.assertRaises(OSError):
+                results.refresh_results(self.races, TODAY)
+        self.assertEqual(results.load_results(), loaded)
+
+    def test_invalid_cancellation_and_unknown_status_are_rejected(self):
+        for result in (dict(self.cancelled_result(), podium=self.data['races']['INA']['podium']),
+                       dict(self.cancelled_result(), podium=None),
+                       dict(self.cancelled_result(), status='NOT_STARTED')):
+            with self.subTest(result=result), self.assertRaises(ValueError):
+                results.validate({'year': 2026, 'races': {'INA': result}})
+
 
 if __name__ == '__main__':
     unittest.main()

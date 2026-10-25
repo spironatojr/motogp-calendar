@@ -52,6 +52,9 @@ window.motogp { background: #17191d; color: #f4eee7; }
 .motogp .podium-rider { color: #e9e6e1; font-size: 12px; font-weight: 650; }
 .motogp .podium-team { color: #9b9fa9; font-size: 10px; font-weight: 400; }
 .motogp .podium-pending { margin-top: 12px; color: #9b9fa9; font-size: 11px; }
+.motogp .cancellation-panel { margin-top: 12px; padding: 10px 12px; border-radius: 8px; background: #382e29; }
+.motogp .cancellation-title { color: #edb58d; font-size: 12px; font-weight: 700; }
+.motogp .cancelled-badge { color: #edb58d; font-size: 9px; font-weight: 800; }
 .motogp .round-badge { color: #9a9eaa; font-size: 11px; font-weight: 700; }
 .motogp .next-badge { color: #ed8c80; font-size: 9px; font-weight: 800; letter-spacing: 1px; }
 .motogp .empty-state { padding: 30px 12px; }
